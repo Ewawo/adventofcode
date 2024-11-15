@@ -16,11 +16,13 @@ import java.util.stream.Collectors;
 public abstract class IDay {
     private int year;
     private int day;
+    private int part;
     protected List<String> input;
 
-    public IDay(int year, int day) {
+    public IDay(int year, int day, int part) {
         this.year = year;
         this.day = day;
+        this.part = part;
         this.input = new ArrayList<>();
     }
 
@@ -45,7 +47,7 @@ public abstract class IDay {
     }
 
     public void solve() {
-        System.out.println("year " + year + ", day " + day + ", answer: " + logic());
+        System.out.println("year " + year + ", day " + day + ", part " + part + ", answer: " + logic());
     }
 
     protected abstract String logic();
