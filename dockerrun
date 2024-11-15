@@ -1,0 +1,5 @@
+#!/bin/bash
+cd ~/Desktop/github/private/adventofcode || exit 1
+
+docker build -t adventofcode . &&
+docker run --name adventofcode --rm adventofcode
