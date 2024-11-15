@@ -6,7 +6,7 @@ public class Day2P1 extends IDay {
 
     public Day2P1() {
         super(2023, 2, 1);
-        String path = "y2023/day2.txt";
+        String path = "y2023/day2p1.txt";
         super.readInput(path);
     }
 
