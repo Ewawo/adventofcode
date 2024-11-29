@@ -1,10 +1,10 @@
 package com.adventofcode.years.y2023;
 
-import com.adventofcode.years.IDay;
+import com.adventofcode.years.Day;
 
-public class Day2P2 extends IDay {
+public class Y23D2P2 extends Day {
 
-    public Day2P2() {
+    public Y23D2P2() {
         super(2023, 2, 2);
         String path = "y2023/day2.txt";
         super.readInput(path);

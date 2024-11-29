@@ -1,10 +1,15 @@
 package com.adventofcode;
 
-import com.adventofcode.years.IDay;
-import com.adventofcode.years.y2023.Day2P1;
-import com.adventofcode.years.y2023.Day2P2;
+import com.adventofcode.years.Day;
+import com.adventofcode.years.y2023.Y23D2P1;
+import com.adventofcode.years.y2023.Y23D2P2;
+import com.adventofcode.years.y2023.Y23D3P1;
+import com.adventofcode.years.y2024.Y24D1P1;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Hello world!
@@ -12,14 +17,29 @@ import java.util.ArrayList;
  */
 public class App 
 {
+    private static Map<Integer, List<Day>> years;
+
     public static void main( String[] args )
     {
-        ArrayList<IDay> y2023 = new ArrayList<>();
-        y2023.add(new Day2P1());
-        y2023.add(new Day2P2());
+        years = new HashMap<>();
+        // 2023
+        addDay(new Y23D2P1());
+        addDay(new Y23D2P2());
+        addDay(new Y23D3P1());
 
-        for (IDay day : y2023) {
-            day.solve();
+        // 2024
+        addDay(new Y24D1P1());
+
+        System.out.println("-----------------------------------");
+        for (int year : years.keySet()) {
+            for (Day day : years.get(year)) {
+                day.solve();
+            }
+            System.out.println("-----------------------------------");
         }
+    }
+
+    public static void addDay(Day day) {
+        years.computeIfAbsent(day.getYear(), key -> new ArrayList<>()).add(day);
     }
 }
