@@ -11,7 +11,7 @@ public class Y23D2P2 extends Day {
     }
 
     @Override
-    protected String logic() {
+    protected int logic() {
         int result = 0;
 
         for (String game : input) {
@@ -43,6 +43,6 @@ public class Y23D2P2 extends Day {
 
             result += blue * red * green;
         }
-        return result + "";
+        return result;
     }
 }

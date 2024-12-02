@@ -46,5 +46,5 @@ public abstract class Day {
         return year;
     }
 
-    protected abstract String logic();
+    protected abstract int logic();
 }

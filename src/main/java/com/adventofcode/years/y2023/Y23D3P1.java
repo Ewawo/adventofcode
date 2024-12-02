@@ -11,7 +11,7 @@ public class Y23D3P1 extends Day {
     }
 
     @Override
-    protected String logic() {
+    protected int logic() {
 
         int result = 0;
 
@@ -44,6 +44,6 @@ public class Y23D3P1 extends Day {
             }
         }
 
-        return result + "";
+        return result;
     }
 }
