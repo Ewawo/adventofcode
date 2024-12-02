@@ -32,7 +32,6 @@ public class Y24D2P1 extends Day {
                     break;
                 }
             }
-
         }
 
         return result;
