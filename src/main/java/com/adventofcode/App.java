@@ -34,6 +34,8 @@ public class App
         addDay(new Y24D2P2());
         addDay(new Y24D3P1());
         addDay(new Y24D3P2());
+        addDay(new Y24D4P1());
+        addDay(new Y24D4P2());
 
         System.out.println("-----------------------------------");
         for (int year : years.keySet()) {
