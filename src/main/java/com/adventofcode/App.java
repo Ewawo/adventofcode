@@ -4,10 +4,7 @@ import com.adventofcode.years.Day;
 import com.adventofcode.years.y2023.Y23D2P1;
 import com.adventofcode.years.y2023.Y23D2P2;
 import com.adventofcode.years.y2023.Y23D3P1;
-import com.adventofcode.years.y2024.Y24D1P1;
-import com.adventofcode.years.y2024.Y24D1P2;
-import com.adventofcode.years.y2024.Y24D2P1;
-import com.adventofcode.years.y2024.Y24D2P2;
+import com.adventofcode.years.y2024.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,6 +32,8 @@ public class App
         addDay(new Y24D1P2());
         addDay(new Y24D2P1());
         addDay(new Y24D2P2());
+        addDay(new Y24D3P1());
+        addDay(new Y24D3P2());
 
         System.out.println("-----------------------------------");
         for (int year : years.keySet()) {
