@@ -13,7 +13,7 @@ public class Y24D5P1 extends Day {
     }
 
     @Override
-    protected int logic() {
+    protected Integer logic() {
         int result = 0;
 
         Map<Integer, ArrayList<Integer>> pageRules = new HashMap<>();

@@ -15,7 +15,7 @@ public class Y24D3P1 extends Day {
     }
 
     @Override
-    protected int logic() {
+    protected Integer logic() {
         Pattern globalRegexer = Pattern.compile("mul\\([0-9]{1,3},[0-9]{1,3}\\)");
         Pattern innerRegexer = Pattern.compile("[0-9]{1,3}");
         int result = 0;

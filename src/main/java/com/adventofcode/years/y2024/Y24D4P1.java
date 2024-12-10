@@ -14,7 +14,7 @@ public class Y24D4P1 extends Day {
         super.readInput(path);
     }
     @Override
-    protected int logic() {
+    protected Integer logic() {
         int result = 0;
 
 

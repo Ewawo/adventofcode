@@ -14,7 +14,7 @@ public class Y24D2P2 extends Day {
     }
 
     @Override
-    protected int logic() {
+    protected Integer logic() {
         int result = 0;
 
         for (String line : input) {

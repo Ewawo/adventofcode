@@ -15,7 +15,7 @@ public class Y24D1P2 extends Day {
     }
 
     @Override
-    protected int logic() {
+    protected Integer logic() {
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();
 
