@@ -1,10 +1,7 @@
 package com.adventofcode.years.y2024;
 
-import com.adventofcode.App;
 import com.adventofcode.years.Day;
 
-import java.io.IOException;
-import java.math.BigInteger;
 import java.util.*;
 
 public class Y24D7P2 extends Day {
@@ -17,34 +14,29 @@ public class Y24D7P2 extends Day {
     }
 
     @Override
-    protected BigInteger logic() {
-        Map<BigInteger, Deque<BigInteger>> calibrations = new HashMap<>();
+    protected Long logic() {
+        Map<Long, Deque<Long>> calibrations = new HashMap<>();
 
         for (String line : input) {
-            calibrations.put(new BigInteger(line.split(": ")[0]), parseArray(line.split(": ")[1].split(" ")));
+            calibrations.put(Long.parseLong(line.split(": ")[0]), parseArray(line.split(": ")[1].split(" ")));
         }
 
-        BigInteger result = new BigInteger("0");
-
-        for (BigInteger key : calibrations.keySet()) {
-            if (numbersAddsUp(key, calibrations.get(key))) {
-                result = result.add(key);
-            }
-        }
-
-        return result;
+        return calibrations.keySet().parallelStream()
+                .filter(key -> numbersAddsUp(key, calibrations.get(key)))
+                .mapToLong(Long::longValue)
+                .sum();
     }
 
-    private boolean numbersAddsUp(BigInteger number, Deque<BigInteger> queue) {
-        if (queue.size() < 2 || number.signum() < 0) {
+    private boolean numbersAddsUp(Long number, Deque<Long> queue) {
+        if (queue.size() < 2 || number < 0) {
             return false;
         }
 
-        BigInteger val1 = queue.removeLast();
-        BigInteger val2 = queue.removeLast();
-        BigInteger add = add(val1, val2);
-        BigInteger multiply = multiply(val1, val2);
-        BigInteger concat = concat(val1, val2);
+        long val1 = queue.removeLast();
+        long val2 = queue.removeLast();
+        long add = add(val1, val2);
+        long multiply = multiply(val1, val2);
+        long concat = concat(val1, val2);
 
         if (test(number, add, new LinkedList<>(queue))) {
             return true;
@@ -57,17 +49,17 @@ public class Y24D7P2 extends Day {
         return false;
     }
 
-    private boolean test(BigInteger goal, BigInteger current, Deque<BigInteger> queue) {
+    private boolean test(long goal, long current, Deque<Long> queue) {
         if (Objects.equals(goal, current)) {
             return true;
-        } else if (queue.isEmpty() || current.compareTo(goal) > 0) {
+        } else if (queue.isEmpty() || current > goal) {
             return false;
         }
 
-        BigInteger val1 = queue.removeLast();
-        BigInteger add = add(val1, current);
-        BigInteger multiply = multiply(val1, current);
-        BigInteger concat = concat(current, val1);
+        long val1 = queue.removeLast();
+        long add = add(val1, current);
+        long multiply = multiply(val1, current);
+        long concat = concat(current, val1);
 
         if (test(goal, add, new LinkedList<>(queue))) {
             return true;
@@ -79,22 +71,21 @@ public class Y24D7P2 extends Day {
         return false;
     }
 
-    private BigInteger add(BigInteger val1, BigInteger val2) {
-        return val1.add(val2);
+    private long add(long val1, long val2) {
+        return val1 + val2;
     }
 
-    private BigInteger multiply(BigInteger val1, BigInteger val2) {
-        return val1.multiply(val2);
+    private long multiply(long val1, long val2) {
+        return val1 * val2;
     }
 
-    private BigInteger concat(BigInteger val1, BigInteger val2) {
-        return new BigInteger(val1.toString() + val2.toString());
+    private long concat(long val1, long val2) {
+        return Long.parseLong(val1 + Long.toString(val2));
     }
 
-    private Deque<BigInteger> parseArray(String[] strings) {
-        Deque<BigInteger> queue = new LinkedList<>() {
-        };
-        Arrays.stream(strings).forEach(i -> queue.addFirst(new BigInteger(i)));
+    private Deque<Long> parseArray(String[] strings) {
+        Deque<Long> queue = new LinkedList<>();
+        Arrays.stream(strings).forEach(i -> queue.addFirst(Long.parseLong(i)));
         return queue;
     }
 }
