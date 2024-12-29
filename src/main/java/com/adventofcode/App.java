@@ -58,6 +58,22 @@ public class App
         addDay(new Y24D14P2());
         addDay(new Y24D15P1());
         addDay(new Y24D15P2());
+        addDay(new Y24D16P1());
+        addDay(new Y24D16P2());
+        addDay(new Y24D17P1());
+        addDay(new Y24D17P2());
+        addDay(new Y24D18P1());
+        addDay(new Y24D18P2());
+        addDay(new Y24D19P1());
+        addDay(new Y24D19P2());
+        addDay(new Y24D20P1());
+        addDay(new Y24D20P2());
+        addDay(new Y24D21P1());
+        addDay(new Y24D21P2());
+        addDay(new Y24D22P1());
+        addDay(new Y24D22P2());
+        addDay(new Y24D23P1());
+        addDay(new Y24D23P2());
 
         System.out.println("-----------------------------------");
         for (int year : years.keySet()) {

@@ -46,5 +46,5 @@ public abstract class Day {
         return year;
     }
 
-    protected abstract Number logic();
+    protected abstract Object logic();
 }
