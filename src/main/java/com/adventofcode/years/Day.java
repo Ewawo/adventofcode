@@ -10,13 +10,11 @@ import java.util.stream.Collectors;
 public abstract class Day {
     private final int year;
     private final int day;
-    private final int part;
     protected List<String> input;
 
-    protected Day(int year, int day, int part) {
+    protected Day(int year, int day) {
         this.year = year;
         this.day = day;
-        this.part = part;
         this.input = new ArrayList<>();
     }
 
@@ -39,12 +37,15 @@ public abstract class Day {
     }
 
     public void solve() {
-        System.out.println("year " + year + ", day " + day + ", part " + part + ", answer: " + logic());
+        System.out.println("year " + year + ", day " + day + ", part 1, answer: " + part1());
+        System.out.println("year " + year + ", day " + day + ", part 2, answer: " + part2());
     }
 
     public int getYear() {
         return year;
     }
 
-    protected abstract Object logic();
+    protected abstract Object part1();
+
+    protected abstract Object part2();
 }
